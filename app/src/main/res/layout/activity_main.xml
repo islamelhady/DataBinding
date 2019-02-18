@@ -5,8 +5,12 @@
     >
     <data>
         <variable
-            name="modle"
+            name="model"
             type="com.elhady.databinding.Model"/>
+
+        <variable
+            name="clicks"
+            type="com.elhady.databinding.MainActivity.MyClick"/>
     </data>
 
     <RelativeLayout
@@ -24,17 +28,39 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{modle.name}" />
+                android:text="@{model.name}"
+                android:hint="Company Name"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{modle.link}" />
+                android:text="@{model.link}"
+                android:hint="Company Link"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{modle.detil}" />
+                android:text="@{model.detil}"
+                android:hint="Company Detils"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{clicks::onClicked}"
+                android:text="CLICK" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v) -> clicks.onButtonClickWithParam(v ,model)}"
+                android:text="CLICK WITH PARAM" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LONG PRESS"
+                android:onLongClick="@{clicks::onButtonLongPressed}"/>
         </LinearLayout>
 
 
